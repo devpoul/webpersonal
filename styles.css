@@ -1,0 +1,464 @@
+
+/* Importando la fuente Rubik de Google Fonts. */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap');
+
+/* Definición de las variables para el CSS, colores de página y tamaños de fuentes */
+:root {
+    --color-bg: #020403;
+    --color-primary: #ffffff;
+    --color-secondary: #ADADAD;
+
+    --font-size-title-mobile: 40px;
+    --font-size-subtitle-mobile: 25px;
+    --font-size-subsection-mobile: 18px;
+    --font-size-body-mobile: 16px;
+
+    --font-weight-title-mobile: 600;
+    --font-weight-subtitle-mobile: 500;
+    --font-weight-subsection-mobile: 400;
+    --font-weight-body-mobile: 400;
+
+    --font-size-title-desktop: 50px;
+    --font-size-subtitle-desktop: 50px;
+    --font-size-subsection-desktop: 45px;
+    --font-size-body-desktop: 18px;
+    
+    --font-weight-title-desktop: 600;
+    --font-weight-subtitle-desktop: 500;
+    --font-weight-subsection-desktop: 400;
+    --font-weight-body-desktop: 400;
+}
+
+/* Establecer el relleno, el margen, el tamaño del cuadro, la familia de fuentes y el color de fondo
+predeterminados para todos los elementos. */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+    background-color: var(--color-bg);
+
+    color: var(--color-primary);
+}
+
+/* Haciendo el desplazamiento suave. */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Establecer el ancho máximo del cuerpo en 360 px y centrarlo. */
+body {
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+}
+
+/* Quitar las viñetas de la lista desordenada. */
+ul {
+    list-style: none;
+}
+
+/* Quitar el subrayado de los enlaces. */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* Configurando la barra de navegación para que sea fija, y está configurando la altura de la barra de
+navegación en 50px. */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 0 1rem;
+    position: fixed;
+    width: 100%;
+    z-index: 5000;
+}
+
+/* Configuración del menú para que sea fijo, 100 % de ancho, izquierda 0, 50 px superiores,
+visualización flexible, columna de dirección flexible, centro de elementos de alineación, relleno 1
+rem 0, espacio 1 rem, transformación de traducción X (200 %), transformación de transición 0,5 s. */
+.menu {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    gap: 1rem;
+    transform: translateX(200%);
+    transition: transform 0.5s;
+    
+}
+
+.menu-show {
+    transform: translateX(0);
+}
+
+/* Este es el CSS para los enlaces en el menú. */
+.menu a, .social-linkedin, .social-instagram, .social-twitter {
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    transition: color 0.5s, background-color 0.5s;
+}
+
+/* Este es el CSS para los enlaces en el menú. */
+.menu a:hover, .social-linkedin:hover, .social-instagram:hover, .social-twitter:hover {
+    color: red;
+    background-color: var(--color-secondary);
+}
+
+/* Una clase de CSS que se usa para diseñar el icono del menú de hamburguesas. */
+.icon-menu {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+/* Configurando el padding-top a 4rem y el margen a automático. */
+.content-principal {
+    padding-top: 4rem;
+    margin: auto;
+}
+
+/* Establecer el ancho de la imagen en 200 px, el radio del borde en 100 % (lo que la convierte en un
+círculo) y el desbordamiento en oculto. */
+.box-img-home {
+    min-width: 200px;
+    border-radius: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Hacer que el ancho de la imagen sea el 100% del elemento principal. */
+.home .box-img-home img {
+    width: 100%;
+}
+
+/* Establecer la posición del cuadro en relativa, el relleno en 2 em, el espaciado entre letras en 1 px
+y la altura de la línea en 45 px. */
+.box-info-home {
+    position: relative;
+    padding-top: 2em;
+    letter-spacing: 1px;
+    line-height: 45px;
+}
+
+/* Establecer el color del texto en el color secundario, el tamaño de fuente en el tamaño de fuente de
+los subtítulos móviles y el grosor de fuente en el grosor de fuente de los subtítulos móviles. */
+.home .box-info-home .title-home {
+    color: var(--color-secondary);
+    font-size: var(--font-size-subtitle-mobile);
+    font-weight: var(--font-weight-subtitle-mobile);
+}
+
+/* Establecer el color del texto en el color primario, el tamaño de fuente en el tamaño de fuente del
+título móvil y el grosor de fuente en el grosor de fuente del título móvil. */
+.home .box-info-home .title-home span {
+    color: var(--color-primary);
+    font-size: var(--font-size-title-mobile);
+    font-weight: var(--font-weight-title-mobile);
+}
+
+/* Hacer que los íconos de las redes sociales aparezcan en una fila. */
+.social-media {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-top: 1em;
+    padding-bottom: 4em;
+}
+
+/* Establecer el color del texto en el color principal, el tamaño de fuente en el tamaño de fuente
+móvil de subtítulos, el peso de fuente en el peso de fuente móvil de subtítulos y el relleno en 1em. */
+.title-about {
+    color: var(--color-primary);
+    font-size: var(--font-size-subtitle-mobile);
+    font-weight: var(--font-weight-subtitle-mobile);
+    padding: 1em;
+}
+
+/* Establecer el color del texto en el color secundario, el tamaño de la fuente en el tamaño de la
+fuente móvil del cuerpo, el peso de la fuente en el peso de la fuente móvil del cuerpo y el relleno
+inferior en 4em. */
+.text-about {
+    color: var(--color-secondary);
+    font-size: var(--font-size-body-mobile);
+    font-weight: var(--font-weight-body-mobile);
+    padding-bottom: 4em;
+}
+
+/* Hacer que la clase de interfaz de habilidades sea una caja flexible. */
+.skills-frontend {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-top: 1em;
+    padding-bottom: 2em;
+}
+
+/* Establecer el color del texto en el color primario, el tamaño de fuente en el tamaño de fuente de
+los subtítulos móviles, el grosor de fuente en el grosor de fuente de los subtítulos móviles y el
+relleno en 1em. */
+.title-skills {
+    color: var(--color-primary);
+    font-size: var(--font-size-subtitle-mobile);
+    font-weight: var(--font-weight-subtitle-mobile);
+    padding: 1em;
+}
+
+/* Establecer el color de fondo del svg en darkslategray, el radio del borde en 100% y el relleno en
+2px. */
+.skills-frontend svg {
+    background-color: darkslategray;
+    border-radius: 100%;
+    padding: 2px;
+}
+
+/* Estableciendo el padding-bottom en 1em para todos los elementos con las clases mobile-skills,
+mobile-skills p, motion-skills, motion-skills p, system-skills, system-skills p, Develop-Skills y
+Develop-Skills p . */
+.mobile-skills, .mobile-skills p, .motion-skills, .motion-skills p, .system-skills, .system-skills p, .develop-skills, .develop-skills p {
+    padding-bottom: 1em;
+    color: var(--color-secondary);
+    font-size: var(--font-size-subsection-mobile);
+    font-weight: var(--font-weight-subsection-mobile);
+}
+
+/* Agregar un fondo de relleno de 5em a la clase de experiencia. */
+.experience {
+    padding-bottom: 5em;
+}
+
+/* Establecer el color del texto en el color principal, el tamaño de fuente en el tamaño de fuente de
+los subtítulos móviles, el grosor de fuente en el grosor de fuente de los subtítulos móviles y el
+relleno en 1em. */
+.title-experience {
+    color: var(--color-primary);
+    font-size: var(--font-size-subtitle-mobile);
+    font-weight: var(--font-weight-subtitle-mobile);
+    padding: 1em;
+}
+
+/* Centrar la tabla y hacer que la tabla sea del 100% del ancho de la página. */
+table {
+    margin: auto;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-body-mobile);
+    font-weight: var(--font-weight-body-mobile);
+}
+
+/* Configuración del relleno para los datos de la tabla y el encabezado de la tabla. */
+td, th {
+    padding: 1em;
+}
+
+/* Adición de un borde en la parte inferior del encabezado de la tabla. */
+thead {
+    border-bottom: solid 1px;
+}
+
+/* Adición de un borde en la parte inferior de la fila de la tabla. */
+tr {
+    border-bottom: solid 1px;
+}
+
+/* Establecer el color del texto en la tabla en el color primario. */
+td {
+    color: var(--color-primary);
+}
+
+/* Cambiando el color del texto dentro de la etiqueta span. */
+td span {
+    color: var(--color-secondary);
+}
+
+/* Establecer el color del texto en el color principal, el tamaño de fuente en el tamaño de fuente de
+los subtítulos móviles, el grosor de fuente en el grosor de fuente de los subtítulos móviles y el
+relleno en 1em. */
+.title-portfolio {
+    color: var(--color-primary);
+    font-size: var(--font-size-subtitle-mobile);
+    font-weight: var(--font-weight-subtitle-mobile);
+    padding: 1em;
+}
+
+/* Agregar un fondo de relleno de 3em a la clase de desarrollo de cartera. */
+.portfolio-develop {
+    padding-bottom: 3em;
+}
+
+/* Hacer que las imágenes en la sección de cartera sean receptivas. */
+.portfolio-develop img {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1em;
+    width: 100%;
+}
+
+/* Establecer el color del texto en el color principal, el tamaño de fuente en el tamaño de fuente de
+los subtítulos móviles, el grosor de fuente en el grosor de fuente de los subtítulos móviles y el
+relleno en 1em. */
+.title-contact {
+    color: var(--color-primary);
+    font-size: var(--font-size-subtitle-mobile);
+    font-weight: var(--font-weight-subtitle-mobile);
+    padding: 1em;
+}
+
+/* Hacer que los elementos de teléfono y correo electrónico aparezcan en una fila. */
+.personal-contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 5em;
+}
+
+/* Establecer el color del texto en el color primario, el tamaño de fuente en el tamaño de fuente del
+cuerpo móvil y el grosor de fuente en el grosor de fuente del cuerpo móvil. */
+.telephone p, .email p {
+    color: var(--color-primary);
+    font-size: var(--font-size-body-mobile);
+    font-weight: var(--font-weight-body-mobile);
+}
+
+/* Cambiando el color del texto dentro de la etiqueta span. */
+.telephone span, .email span {
+    color: var(--color-secondary);
+}
+
+/* Centrar el texto en el pie de página, cambiar el color del texto al color secundario y agregar
+relleno en la parte superior e inferior del pie de página. */
+footer {
+    text-align: center;
+    color: var(--color-secondary);
+    padding-top: 1em;
+    padding-bottom: 4em;
+}
+
+
+/* Una consulta de medios que está cambiando el CSS para la versión de escritorio del sitio web. */
+@media (min-width: 700px) {
+    .menu {
+            position: static;
+            width: auto;
+            background-color: transparent;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 0;
+            gap: 1rem;
+            transform: translateY(0);
+        }
+
+    body {
+        max-width: 700px;
+    }
+
+    /* desaparece el icono de menú hamburguesa para dispositivos grandes */
+    .icon-menu {
+        display: none;
+    }
+
+    .content-principal {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .home .box-img-home {
+        width: 400px;
+        border-radius: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .box-info-home {
+        line-height: 50px;
+    }
+
+    .home .box-info-home .title-home {
+        font-size: var(--font-size-subtitle-desktop);
+        font-weight: var(--font-weight-subtitle-desktop);
+    }
+    .home .box-info-home .title-home span {
+        font-size: var(--font-size-title-desktop);
+        font-weight: var(--font-weight-title-desktop);
+    }
+
+    .social-media {
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding-bottom: 2.5em;
+    }
+
+    .title-about {
+        font-size: var(--font-size-subtitle-desktop);
+        font-weight: var(--font-weight-subtitle-desktop);
+        padding: 1.5em 1em 1.25em;
+    }
+
+    .text-about {
+        font-size: var(--font-size-body-desktop);
+        font-weight: var(--font-weight-body-desktop);
+    }
+
+    .title-skills {
+        font-size: var(--font-size-subtitle-desktop);
+        font-weight: var(--font-weight-subtitle-desktop);
+    }
+
+    .skills-frontend {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .title-experience {
+        font-size: var(--font-size-subtitle-desktop);
+        font-weight: var(--font-weight-subtitle-desktop);
+    }
+
+    table {
+        font-size: var(--font-size-body-desktop);
+        font-weight: var(--font-weight-body-desktop);
+    }
+
+    .title-portfolio {
+        font-size: var(--font-size-subtitle-desktop);
+        font-weight: var(--font-weight-subtitle-desktop);
+}
+
+    .portfolio-develop {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .portfolio-develop img {
+        padding: 1em;
+        width: 200px;
+}
+
+    .title-contact {
+        font-size: var(--font-size-subtitle-desktop);
+        font-weight: var(--font-weight-subtitle-desktop);
+}
+
+    .personal-contact {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+}
+}
